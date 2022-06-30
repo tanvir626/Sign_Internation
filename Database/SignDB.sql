@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2022 at 05:13 PM
+-- Generation Time: Jun 30, 2022 at 05:22 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -24,6 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customer_address`
+--
+
+CREATE TABLE `customer_address` (
+  `Address_ID` int(8) NOT NULL,
+  `Name` int(50) NOT NULL,
+  `District` int(20) NOT NULL,
+  `Division` int(20) NOT NULL,
+  `Postal_Code` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `customer_info`
 --
 
@@ -32,6 +46,7 @@ CREATE TABLE `customer_info` (
   `Name` text NOT NULL,
   `AddressID` int(8) NOT NULL,
   `Mobile` int(13) NOT NULL,
+  `Mobile-2` int(13) NOT NULL,
   `Email` varchar(22) NOT NULL,
   `Comapany` varchar(20) NOT NULL,
   `Designation` varchar(22) NOT NULL
@@ -40,6 +55,12 @@ CREATE TABLE `customer_info` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `customer_address`
+--
+ALTER TABLE `customer_address`
+  ADD PRIMARY KEY (`Address_ID`);
 
 --
 -- Indexes for table `customer_info`
