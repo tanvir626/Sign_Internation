@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2022 at 05:39 PM
+-- Generation Time: Jun 30, 2022 at 05:50 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -83,6 +83,19 @@ CREATE TABLE `employee_info` (
   `Designation` text NOT NULL,
   `Salary` int(6) NOT NULL,
   `DOB` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `FeedBackID` int(8) NOT NULL,
+  `Name` text NOT NULL,
+  `Email` varchar(20) NOT NULL,
+  `Message` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
