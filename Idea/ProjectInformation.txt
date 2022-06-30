@@ -1,0 +1,17 @@
+project name:sign international
+type:Web-Application
+Entity: Admin, Customer, Employee
+Sub-system:
+            Inventory Management System
+            Employee management system
+            Customer management system
+            Order Management System 
+            Payment Management System
+            Resourcemanagement system
+goal: Transforming manual work to auto 
+Complete day:26 april 2023
+Tasks;
+1.Creating Database
+2.Creating environment
+3.creting visula
+4.createing functional
