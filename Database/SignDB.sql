@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2022 at 05:50 PM
+-- Generation Time: Jul 01, 2022 at 04:55 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,34 @@ SET time_zone = "+00:00";
 --
 -- Database: `signinternational`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attandance`
+--
+
+CREATE TABLE `attandance` (
+  `Date` date NOT NULL,
+  `Employee_ID` int(8) NOT NULL,
+  `Status` tinyint(1) NOT NULL,
+  `Period` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `branch_info`
+--
+
+CREATE TABLE `branch_info` (
+  `BranchID` int(8) NOT NULL,
+  `Name` text NOT NULL,
+  `Employee_N` int(3) NOT NULL,
+  `Branch_Manager` text NOT NULL,
+  `Phone` int(13) NOT NULL,
+  `Mail` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -42,7 +70,7 @@ CREATE TABLE `customer_address` (
 --
 
 CREATE TABLE `customer_info` (
-  `CustomerID` int(8) NOT NULL,
+  `Customer_ID` int(8) NOT NULL,
   `Name` text NOT NULL,
   `CAddressID` int(8) NOT NULL,
   `Mobile` int(13) NOT NULL,
@@ -82,7 +110,8 @@ CREATE TABLE `employee_info` (
   `Company` varchar(20) NOT NULL,
   `Designation` text NOT NULL,
   `Salary` int(6) NOT NULL,
-  `DOB` date NOT NULL
+  `DOB` date NOT NULL,
+  `BranchID` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -98,9 +127,61 @@ CREATE TABLE `feedback` (
   `Message` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_info`
+--
+
+CREATE TABLE `project_info` (
+  `ProjectID` int(11) NOT NULL,
+  `Employee_ID` int(11) NOT NULL,
+  `Target Date` int(11) NOT NULL,
+  `Price` int(11) NOT NULL,
+  `Customer_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `resource_info`
+--
+
+CREATE TABLE `resource_info` (
+  `ResID` int(8) NOT NULL,
+  `Name` int(11) NOT NULL,
+  `Description` int(11) NOT NULL,
+  `Qte` int(11) NOT NULL,
+  `weight` int(11) NOT NULL,
+  `lenght` int(11) NOT NULL,
+  `Unit_Price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vendor`
+--
+
+CREATE TABLE `vendor` (
+  `VendorID` int(8) NOT NULL,
+  `Name` text NOT NULL,
+  `Companay` text NOT NULL,
+  `AddressID` int(8) NOT NULL,
+  `Provides` text NOT NULL,
+  `Mobile` int(13) NOT NULL,
+  `Email` varchar(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `branch_info`
+--
+ALTER TABLE `branch_info`
+  ADD PRIMARY KEY (`BranchID`);
 
 --
 -- Indexes for table `customer_address`
@@ -112,7 +193,7 @@ ALTER TABLE `customer_address`
 -- Indexes for table `customer_info`
 --
 ALTER TABLE `customer_info`
-  ADD PRIMARY KEY (`CustomerID`);
+  ADD PRIMARY KEY (`Customer_ID`);
 
 --
 -- Indexes for table `employee_address`
@@ -125,6 +206,24 @@ ALTER TABLE `employee_address`
 --
 ALTER TABLE `employee_info`
   ADD PRIMARY KEY (`Employee_ID`);
+
+--
+-- Indexes for table `project_info`
+--
+ALTER TABLE `project_info`
+  ADD PRIMARY KEY (`ProjectID`);
+
+--
+-- Indexes for table `resource_info`
+--
+ALTER TABLE `resource_info`
+  ADD PRIMARY KEY (`ResID`);
+
+--
+-- Indexes for table `vendor`
+--
+ALTER TABLE `vendor`
+  ADD PRIMARY KEY (`VendorID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
