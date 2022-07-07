@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2022 at 04:55 AM
+-- Generation Time: Jul 07, 2022 at 05:43 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -37,6 +37,25 @@ CREATE TABLE `attandance` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bill_info`
+--
+
+CREATE TABLE `bill_info` (
+  `Bill_ID` int(8) NOT NULL,
+  `Date` date NOT NULL,
+  `Product_ID` int(8) NOT NULL,
+  `Customer_ID` int(8) NOT NULL,
+  `Unit_Price` float NOT NULL,
+  `Quantity` int(5) NOT NULL,
+  `Tax%` float NOT NULL,
+  `Discount` float NOT NULL,
+  `Payment_Method` text NOT NULL,
+  `Terms and Condition` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `branch_info`
 --
 
@@ -47,6 +66,21 @@ CREATE TABLE `branch_info` (
   `Branch_Manager` text NOT NULL,
   `Phone` int(13) NOT NULL,
   `Mail` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `challan`
+--
+
+CREATE TABLE `challan` (
+  `Challan_ID` int(8) NOT NULL,
+  `Customer_ID` int(8) NOT NULL,
+  `Product_ID` int(8) NOT NULL,
+  `Employee_ID` int(8) NOT NULL,
+  `Quantity` int(5) NOT NULL,
+  `Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -182,6 +216,12 @@ CREATE TABLE `vendor` (
 --
 ALTER TABLE `branch_info`
   ADD PRIMARY KEY (`BranchID`);
+
+--
+-- Indexes for table `challan`
+--
+ALTER TABLE `challan`
+  ADD PRIMARY KEY (`Challan_ID`);
 
 --
 -- Indexes for table `customer_address`
