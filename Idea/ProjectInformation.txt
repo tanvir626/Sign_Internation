@@ -11,7 +11,7 @@ Sub-system:
 goal: Transforming manual work to auto 
 Complete day:26 april 2023
 Tasks;
-1.Creating Database
+1.Creating Database..Done
 2.Creating environment
 3.creting visula
 4.createing functional
